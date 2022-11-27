@@ -1,0 +1,89 @@
+.item-ctnr{
+    width: 600px;
+    height: 100%;
+    border-radius: 10px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 2px 2px 5px 5px rgb(164, 162, 162);
+    border: #000;
+}
+
+.campaign-name{
+    font-size: 2rem;
+}
+
+.keyword{
+    font-size: 0.7rem;
+    border: 1px solid #000;
+    padding:0 5px 0 5px;
+    border-radius: 25px;
+    width: fit-content; 
+}
+
+.info-ctnr{
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    
+}
+
+.info-ctnr1{
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    
+}
+
+.avalability{
+    display: flex;
+    padding: 10px 10px 0  0 ;
+    font-size: 1.2rem;
+}
+
+
+.bidfund{
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.2rem;
+    
+}
+
+.locationradius{
+    font-size: 1rem;
+    display: flex;
+    justify-content: flex-start;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+@media  (max-width: 1350px){
+    .item-ctnr{
+      width: 450px;
+      height: 100%;
+      
+  }
+  
+  .campaign-name{
+      font-size: 1.5rem;
+  }
+  
+  .keyword{
+      font-size: 0.7rem;
+      
+  }
+  
+  
+  .avalability{
+      font-size: 1rem;
+  }
+  
+  
+  .bidfund{
+      font-size: 1rem;
+  }
+  
+  .locationradius{
+      font-size: 1rem;
+  }
+  }

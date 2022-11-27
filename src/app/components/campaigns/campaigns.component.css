@@ -1,0 +1,31 @@
+.campaigns-info{
+    width: 100%;
+    padding-top: 50px;
+    background-color: #ffffff;
+    text-align: center;
+
+}
+
+.welcome-text{
+    font-size: 2rem;
+    font-weight: 700;
+}
+.campaigns-ctnr{
+    margin-top: 75px;
+}
+
+.campaigns-grid{
+    display: inline-grid;
+    max-width: 100%;
+    margin: 20px auto;
+    gap: 100px;
+}
+
+@media (min-width: 600px) {
+    .campaigns-grid { grid-template-columns: repeat(1, 1fr); }
+  }
+  @media (min-width: 900px) {
+    .campaigns-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+

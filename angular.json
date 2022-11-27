@@ -23,6 +23,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -69,6 +70,10 @@
             "development": {
               "browserTarget": "my-app:build:development"
             }
+            
+          },
+          "options": {
+            "disableHostCheck": true
           },
           "defaultConfiguration": "development"
         },
@@ -90,6 +95,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -97,5 +103,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "9588b7c4-3aa9-4c8c-92cb-69d64827cf1e"
   }
 }
