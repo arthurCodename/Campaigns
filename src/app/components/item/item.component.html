@@ -1,19 +1,41 @@
 <div class="item-ctnr">
   <div class="info-ctnr1">
-    <div class="campaign-name">Google.com</div>
+    <div class="campaign-name">{{ campaignData.product }}</div>
     <div class="avalability">
-      <span class="material-icons" style="color: rgb(0, 128, 55)">check</span
-      >Available
+      <button mat-icon-button [matMenuTriggerFor]="menu">
+        <span class="material-icons">more_vert</span>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="openDialog()">Edit</button>
+        <button mat-menu-item (click)="deleteCampaign(campaignData.uuid)">
+          Delete
+        </button>
+      </mat-menu>
     </div>
   </div>
-  <div class="keyword">Computer Services</div>
+  <div class="keyword">{{ campaignData.keyword }}</div>
+  <div class="avalability">
+    <ng-container *ngIf="campaignData.status; else Unavailable">
+      <span class="material-icons" style="color: rgb(0, 128, 55)">check</span>
+      Available
+    </ng-container>
+  </div>
+  <ng-template #Unavailable
+    ><span class="material-icons" style="color: rgb(131, 23, 8)">close</span>
+    Unavailable</ng-template
+  >
 
   <div class="locationradius">
-    Location: Sydney,
-    <span>300sqm</span>
+    {{ campaignData.location + " (" + campaignData.radius + "sqm)" }}
   </div>
   <div class="bidfund">
-    <div>Fund: $31004M</div>
-    <div class="bid">Bid: $310K</div>
+    <div class="fund">
+      <div class="bidfund-title">Fund</div>
+      {{ campaignData.fund | currency }} USD
+    </div>
+    <div class="bid">
+      <div class="bidfund-title">Bid</div>
+      {{ campaignData.bid | currency }} USD
+    </div>
   </div>
 </div>

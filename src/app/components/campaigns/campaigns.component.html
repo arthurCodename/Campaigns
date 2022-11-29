@@ -6,13 +6,13 @@
 
   <div class="campaigns-ctnr">
     <div class="campaigns-grid">
-      <div class="grid-item1"><app-item></app-item></div>
-      <div class="grid-item2"><app-item></app-item></div>
-      <div class="grid-item3"><app-item></app-item></div>
-      <div class="grid-item3"><app-item></app-item></div>
-      <div class="grid-item3"><app-item></app-item></div>
-      <div class="grid-item3"><app-item></app-item></div>
-      <div class="grid-item3"><app-item></app-item></div>
+      <div *ngFor="let campaign of campaigns">
+        <app-item
+          [campaignData]="campaign"
+          [editData]="editCampaign"
+          (deleteEvent)="deleteCampaign($event)"
+        ></app-item>
+      </div>
     </div>
   </div>
 </div>

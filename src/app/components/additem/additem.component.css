@@ -1,7 +1,7 @@
 .additem-ctnr {
   width: 600px;
   height: 700px;
-  background-color: rgb(93, 93, 93);
+  background-color: rgb(255, 255, 255);
   border-radius: 10px;
   position: absolute;
   top: 50%;
@@ -17,17 +17,16 @@
 .additem-ctnr label {
   display: block;
   font-size: 1.5rem;
-  color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
 }
 
 .full-width {
   grid-column: 1 / 3;
-  color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
   width: 100%;
   text-align: center;
-  
 }
-.status{
+.status {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -37,27 +36,95 @@
   font-size: 1.3rem;
   padding: 10px;
   height: 60px;
-  background-color: rgb(251, 255, 250);
-  color: rgb(44, 41, 41);
+  background-color: rgb(217, 217, 217);
+  color: rgb(0, 0, 0);
   border-radius: 10px;
   border: none;
 }
 
-input:focus, textarea:focus, select:focus{
+input:focus,
+textarea:focus,
+select:focus {
   outline: none;
 }
 .add-btn {
   font-size: 1.3rem;
   height: 60px;
   background-color: rgb(11, 193, 11);
-  border-radius: 5px;
   color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  place-self: center;
+  width: 100%;
+  border: none;
 }
 
 :hover .add-btn {
   cursor: pointer;
 }
+
+.dropdown-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: calc((100% - 50px) / 2);
+
+  background-color: white;
+}
+
+.dropdown-item {
+  font-size: 1.1rem;
+  background-color: white;
+  color: black;
+
+  border: none;
+}
+
+.dropdown-item :hover {
+  background-color: rgb(163, 162, 162);
+}
+
+@media (max-width: 650px) {
+  .additem-ctnr {
+    width: 400px;
+    height: 500px;
+
+    column-gap: 20px;
+    row-gap: 5px;
+  }
+  .additem-ctnr input {
+    font-size: 0.8rem;
+
+    height: 40px;
+
+    padding: 10px;
+  }
+  .additem-ctnr label {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 450px) {
+  .additem-ctnr {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    overflow-y: auto;
+    text-align:justify;
+    padding-top: 20px;
+    width: 300px;
+    padding-top: 100px;
+    
+  }
+  .additem-ctnr input {
+    font-size: 1rem;
+
+    height: 40px;
+
+    padding: 10px;
+  }
+  .additem-ctnr label {
+    font-size: 1rem;
+  }
+}
+
 

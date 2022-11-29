@@ -1,0 +1,22 @@
+{
+    "cities":[
+        {"name": "Kyiv"},
+        {"name": "Tbilisi"},
+        {"name": "Warsaw"},
+        {"name": "London"},
+        {"name": "Berlin"},
+        {"name": "Paris"},
+        {"name": "Los Angeles"},
+        {"name": "Toronto"},
+        {"name": "Prague"},
+        {"name": "Krakow"},
+        {"name": "Warsaw"},
+        {"name": "Sydney"},
+        {"name": "Zurich"},
+        {"name": "Warsaw"},
+        {"name": "Lisabon"},
+        {"name": "Madrid"},
+        {"name": "New York"},
+        {"name": "Philadelphia"}
+    ]
+}

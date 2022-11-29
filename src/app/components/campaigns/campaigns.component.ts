@@ -1,24 +1,41 @@
 import { Component, OnInit } from '@angular/core';
-import {ItemComponent} from '../item/item.component'
-
-import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { AdditemComponent } from '../additem/additem.component';
+import { Campaign, CampaignsService } from 'src/app/core/campaigns.service';
 
 @Component({
   selector: 'app-campaigns',
   templateUrl: './campaigns.component.html',
-  styleUrls: ['./campaigns.component.css']
+  styleUrls: ['./campaigns.component.css'],
 })
 export class CampaignsComponent implements OnInit {
-  constructor(private dialog : MatDialog) { }
-  
+  campaigns: Campaign[] = [];
+
+  constructor(private campaignsService: CampaignsService) {}
+
   ngOnInit(): void {
-    
+    this.loadCampaigns();
   }
-  openDialog(){
-    this.dialog.open( AdditemComponent, {
-      width: "600px",
-      height: "70vh",
-    })
+
+  loadCampaigns(): void {
+    this.campaignsService.getCampaigns().subscribe({
+      next: (res) => {
+        this.campaigns = res.items;
+      },
+    });
+  }
+
+  deleteCampaign(uuid: string): void {
+    this.campaignsService.deleteCampaign(uuid).subscribe({
+      next: () => {
+        this.loadCampaigns();
+      },
+    });
+  }
+
+  editCampaign(value: Campaign) {
+    this.campaignsService.editCampaign(value).subscribe({
+      next: () => {
+        this.loadCampaigns();
+      },
+    });
   }
 }

@@ -1,0 +1,24 @@
+{
+  "items": [
+    {
+      "uuid": "5d41446e-54de-4dda-8964-df83db72da00",
+      "product": "Google Inc",
+      "keyword": "computer services",
+      "location": "Sydney, Australia",
+      "radius": "100",
+      "bid": "100000",
+      "fund": "1000000",
+      "status": true
+    },
+    {
+      "uuid": "7fd5a694-c044-4ec7-9bce-a8cf32ba0a17",
+      "product": "Amazon Inc",
+      "keyword": "computer services",
+      "location": "Sydney, Australia",
+      "radius": "10",
+      "bid": "2500000",
+      "fund": "30000000",
+      "status": true
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CampaignsService } from 'src/app/core/campaigns.service';
 import { CampaignsComponent } from '../campaigns/campaigns.component';
-
 
 @Component({
   providers: [CampaignsComponent],
@@ -10,12 +10,11 @@ import { CampaignsComponent } from '../campaigns/campaigns.component';
 })
 export class HeaderComponent implements OnInit {
   title: string = 'Task Tracker';
-  constructor(private campaigns: CampaignsComponent) { }
+  constructor(private campaigns: CampaignsService) {}
 
-  ngOnInit(): void {
-  }
-  openDialog() : void {
+  ngOnInit(): void {}
+
+  openDialog(): void {
     this.campaigns.openDialog();
   }
- 
 }
