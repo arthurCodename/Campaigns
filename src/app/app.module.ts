@@ -12,8 +12,6 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ItemComponent } from './components/item/item.component';
 import { AdditemComponent } from './components/additem/additem.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ModalModule } from 'ngx-modialog';
-import { BootstrapModalModule } from 'ngx-modialog/plugins/bootstrap';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
