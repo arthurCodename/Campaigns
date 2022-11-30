@@ -1,19 +1,49 @@
-<ng-container [formGroup]="addItemForm" *ngIf="addItemForm">
+<ng-container [formGroup]="addItemForm" *ngIf="addItemForm" required>
   <div class="additem-ctnr">
     <div>
       <label>Product Name</label>
       <input formControlName="product" class="inpt" type="text" />
+      <div
+        *ngIf="
+          addItemForm.controls['product'] &&
+          addItemForm.controls['product'].invalid &&
+          (addItemForm.controls['product'].dirty ||
+            addItemForm.controls['product'].touched)
+        "
+      >
+        <div
+          style="color: red; position: fixed"
+          *ngIf="addItemForm.controls['product'].errors?.['required']"
+        >
+          Name is required.
+        </div>
+      </div>
     </div>
+
     <div>
       <label>Keyword</label>
       <input
         formControlName="keyword"
-        [disabled]="true"
         id="typeahead-basic"
         [(ngModel)]="modelkeywords"
         [ngbTypeahead]="searchKeywords"
         class="form-control"
       />
+      <div
+        *ngIf="
+          addItemForm.controls['keyword'].invalid &&
+          (addItemForm.controls['keyword'].dirty ||
+            addItemForm.controls['keyword'].touched)
+        "
+        class="alert alert-danger"
+      >
+        <div
+          style="color: red; position: fixed"
+          *ngIf="addItemForm.controls['keyword'].errors?.['required']"
+        >
+          Keyword is required
+        </div>
+      </div>
     </div>
     <div>
       <label for="typeahead-basic">Location</label>
@@ -26,6 +56,21 @@
         [ngbTypeahead]="searchCities"
         class="form-control"
       />
+      <div
+        *ngIf="
+          addItemForm.controls['location'].invalid &&
+          (addItemForm.controls['location'].dirty ||
+            addItemForm.controls['location'].touched)
+        "
+        class="alert alert-danger"
+      >
+        <div
+          style="color: red; position: fixed"
+          *ngIf="addItemForm.controls['location'].errors?.['required']"
+        >
+          Location is required
+        </div>
+      </div>
     </div>
     <div>
       <label>Radius</label>
@@ -34,6 +79,21 @@
         type="text"
         oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1').replace(/^0[^.]/, '0');"
       />
+      <div
+        *ngIf="
+          addItemForm.controls['radius'].invalid &&
+          (addItemForm.controls['radius'].dirty ||
+            addItemForm.controls['radius'].touched)
+        "
+        class="alert alert-danger"
+      >
+        <div
+          style="color: red; position: fixed"
+          *ngIf="addItemForm.controls['radius'].errors?.['required']"
+        >
+          Radius is required
+        </div>
+      </div>
     </div>
     <div>
       <label>Bid</label>
@@ -42,6 +102,21 @@
         type="text"
         oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1').replace(/^0[^.]/, '0');"
       />
+      <div
+        *ngIf="
+          addItemForm.controls['bid'].invalid &&
+          (addItemForm.controls['bid'].dirty ||
+            addItemForm.controls['bid'].touched)
+        "
+        class="alert alert-danger"
+      >
+        <div
+          style="color: red; position: fixed"
+          *ngIf="addItemForm.controls['bid'].errors?.['required']"
+        >
+          Bid is required
+        </div>
+      </div>
     </div>
     <div>
       <label>Fund</label>
@@ -51,6 +126,21 @@
         type="text"
         oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1').replace(/^0[^.]/, '0');"
       />
+      <div
+        *ngIf="
+          addItemForm.controls['fund'].invalid &&
+          (addItemForm.controls['fund'].dirty ||
+            addItemForm.controls['fund'].touched)
+        "
+        class="alert alert-danger"
+      >
+        <div
+          style="color: red; position: fixed"
+          *ngIf="addItemForm.controls['fund'].errors?.['required']"
+        >
+          Fund is required
+        </div>
+      </div>
     </div>
     <div class="full-width">
       <div class="status">
@@ -58,7 +148,13 @@
         <span>Set Status to on or off</span>
       </div>
       <div class="d-flex">
-        <button (click)="handleSubmit()" class="add-btn" mat-dialog-close>
+        <button
+          type="submit"
+          (click)="handleSubmit()"
+          class="add-btn"
+          mat-dialog-close
+          [disabled]="!addItemForm.valid"
+        >
           Add Campaign
         </button>
       </div>

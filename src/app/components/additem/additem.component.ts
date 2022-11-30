@@ -7,7 +7,7 @@ import {
   ViewChild,
   ViewEncapsulation,
 } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Campaign, CampaignsService } from '../../core/campaigns.service';
 import { v4 } from 'uuid';
@@ -91,10 +91,13 @@ export class AdditemComponent implements OnInit {
   }
 
   handleSubmit() {
+    if(this.addItemForm.valid){
     if (!this.data.campaign) {
       return this.addItem();
     }
     return this.editItem();
+  }
+  console.log('hello')
   }
 
   addItem() {
@@ -109,13 +112,15 @@ export class AdditemComponent implements OnInit {
   private buildForm() {
     this.addItemForm = this.formBuilder.group({
       uuid: this.campaign?.uuid || v4(),
-      product: this.campaign?.product,
-      keyword: this.campaign?.keyword ,
-      location: this.campaign?.location ,
-      radius: this.campaign?.radius,
-      bid: this.campaign?.bid ,
-      fund: this.campaign?.fund ,
+      product: [this.campaign?.product, Validators.required],
+      keyword: [this.campaign?.keyword, Validators.required] ,
+      location: [this.campaign?.location, Validators.required] ,
+      radius: [this.campaign?.radius, Validators.required],
+      bid: [this.campaign?.bid, Validators.required] ,
+      fund: [this.campaign?.fund, Validators.required] ,
       status: this.campaign?.status || false,
     });
   }
+
+
 }

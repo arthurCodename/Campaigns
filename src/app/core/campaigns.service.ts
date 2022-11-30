@@ -49,26 +49,23 @@ export class CampaignsService {
   }
 
   addCampaign(campaign: Campaign): void {
-    if (this.validateCampaign(campaign)){
+    
     this.campaigns!.push(campaign);
-    }
+    
   }
 
-  validateCampaign(campaign: Campaign): boolean{
-    for (const [k,v] of Object.entries(campaign)){
-        if (v === null || v === undefined){
-          return false;
-        }
-    }
-    return true;
-  }
+
 
   editCampaign(campaign: Campaign): Observable<any> {
+    
     const idx = this.campaigns!.findIndex((item) => {
       return item.uuid === campaign.uuid;
     });
+    
     this.campaigns![idx!] = campaign;
+    
     return from([{ status: 'updated' }]);
+  
   }
 
   deleteCampaign(uuid: string): Observable<any> {
